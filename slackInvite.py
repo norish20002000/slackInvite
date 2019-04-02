@@ -12,11 +12,6 @@ class SlackInvite:
         if SlackInvite.sc.rtm_connect():
             # print(SlackInvite.sc.user)
             # print(SlackInvite.sc.server.login_data['self']['id'])
-            print(SlackInvite.sc.api_call("chat.postMessage"
-                                        , token=AppConf.accessToken
-                                        , channel=AppConf.channel
-                                        , text="テスト投稿"
-                                        , as_user=True))
             
             while True:
                 data = SlackInvite.sc.rtm_read()
