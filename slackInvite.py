@@ -1,11 +1,8 @@
 #!/usr/local/pyenv/shims/python
 # coding:utf-8
 
-import os
 from slackclient import SlackClient
 import AppConf
-import subprocess
-# import io,sys
 
 class SlackInvite:
     botIdStr = '<@' + AppConf.BOT_ID + '>'
@@ -15,6 +12,10 @@ class SlackInvite:
         if SlackInvite.sc.rtm_connect():
             # print(SlackInvite.sc.user)
             # print(SlackInvite.sc.server.login_data['self']['id'])
+            print(SlackInvite.sc.api_call("chat.postMessage"
+                                        , token=AppConf.botToken
+                                        , channel=AppConf.channel
+                                        , text="テスト投稿"))
             
             while True:
                 data = SlackInvite.sc.rtm_read()
